@@ -21,7 +21,9 @@ func spite(str string) (ret []string, err error) {
 			return nil, errors.New("请输出正确的数字")
 		}
 
-		if getNumberPos(ret, string(s)) != index {
+		pos := getNumberPos(ret, string(s))
+
+		if pos == index {
 			return nil, errors.New("请勿输入重复数字")
 		}
 
@@ -36,6 +38,7 @@ func getNumberPos(numList []string, v string) int {
 		if n == v {
 			return index
 		}
+
 	}
 
 	return -1
